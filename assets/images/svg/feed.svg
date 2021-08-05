@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.58" height="24.941" viewBox="0 0 19.58 24.941">
+  <g id="feed" transform="translate(0.1 0.1)">
+    <path id="Path_330" data-name="Path 330" d="M90.968,40.741a.412.412,0,0,0,.412-.412V16.412A.412.412,0,0,0,90.968,16H72.412a.412.412,0,0,0-.412.412V40.328a.412.412,0,0,0,.412.412ZM72.825,16.825H90.555V39.916H72.825Z" transform="translate(-72 -16)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_332" data-name="Path 332" d="M192,56h1.237v.825H192Z" transform="translate(-190.052 -53.938)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_333" data-name="Path 333" d="M232,56h3.711v.825H232Z" transform="translate(-223.753 -53.938)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_334" data-name="Path 334" d="M272,88h.825v.825H272Z" transform="translate(-261.691 -84.289)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_335" data-name="Path 335" d="M192,88h3.3v.825H192Z" transform="translate(-185.815 -84.289)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_336" data-name="Path 336" d="M126.844,128H112.412a.412.412,0,0,0-.412.412V134.6a.412.412,0,0,0,.412.412h14.432a.412.412,0,0,0,.412-.412v-6.185a.412.412,0,0,0-.412-.412Zm-.412.825v3.639l-1.724-1.477a2.129,2.129,0,0,0-2.715-.046l-1.519,1.215-2.384-2.017a2.069,2.069,0,0,0-2.712.033l-2.554,2.27v-3.618Zm-13.607,4.721,3.1-2.757a1.245,1.245,0,0,1,1.631-.02l4.038,3.417h-8.771Zm10.047.64-1.757-1.486,1.393-1.114a1.3,1.3,0,0,1,1.663.028l2.26,1.937v.635Z" transform="translate(-109.938 -122.227)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_340" data-name="Path 340" d="M112,328h14.844v.825H112Z" transform="translate(-109.938 -312.919)" fill="currentColor" stroke="#181a22" stroke-width="0.2"/>
+    <path id="Path_344" data-name="Path 344" d="M175.835,416h-7.422a.412.412,0,0,0-.412.412v1.649a.412.412,0,0,0,.412.412h7.422a.412.412,0,0,0,.412-.412v-1.649a.412.412,0,0,0-.412-.412Zm-.412,1.649h-6.6v-.825h6.6Z" transform="translate(-166.052 -397.383)" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
+  </g>
+</svg>

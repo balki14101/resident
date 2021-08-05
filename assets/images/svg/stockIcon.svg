@@ -1,0 +1,9 @@
+<svg id="Group_832" data-name="Group 832" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.96" height="21.892" viewBox="0 0 23.96 21.892">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="-0.124" x2="0.271" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2cbb55"/>
+      <stop offset="1" stop-color="#3397f8"/>
+    </linearGradient>
+  </defs>
+  <path id="Union_11" data-name="Union 11" d="M0,21.892V20.72H1.474V19.112L7.866,11.62h7.159L18.11,7.971h4.376V20.72H23.96v1.172Zm16.09-9.5V20.72h4.991V9.142H18.838ZM9.023,20.72h5.663V12.791H9.023ZM2.877,19.487V20.72H7.619V13.928ZM0,15.08,5.094,8.25h7.992L17.806,1.9l-2.155.35L15.386.78,20.18,0,21,4.554l-1.545.251-.369-2.047L13.9,9.74H5.9l-4.626,6.2Z" fill="currentColor"/>
+</svg>
