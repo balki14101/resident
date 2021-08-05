@@ -21,7 +21,42 @@ import {Wave} from 'react-native-animated-spinkit';
 import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SearchBar} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {Height, Width} from '../../../Helpers/Dimensions';
 
+const categories = [
+  {title: 'plumber', icon: 'filter', bgColor: '#54C5F7'},
+  {title: 'Mechanic', icon: 'tool', bgColor: '#FF6B6B'},
+  {title: 'Painter', icon: 'form', bgColor: '#1CD1A1'},
+  {title: 'Construction', icon: 'home', bgColor: '#5ED1C9'},
+  {title: 'Carpenter', icon: 'pushpino', bgColor: '#9BC9F7'},
+  {title: 'Electrician', icon: 'disconnect', bgColor: '#FC9483'},
+];
+
+const CategoryCard = (props) => {
+  const {key, data} = props;
+  const {icon, bgColor, title} = data;
+
+  return (
+    // <TouchableOpacity
+    //   onPress={() => alert(`You clicked ${title} card`)}
+    //   style={{
+    //     marginVertical: 4,
+    //     width: Width / 3.5,
+    //     height: Height / 6.5,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     borderRadius: 8,
+    //     backgroundColor: bgColor,
+    //   }}>
+    // <Icon name={icon} size={80} color="#808080" />
+
+    // </TouchableOpacity>
+    <View>
+      <Text style={styles.cardName}>{title}</Text>
+    </View>
+  );
+};
 export default function ShoppingHome() {
   const [isLoading, setIsLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState('');
@@ -76,15 +111,6 @@ export default function ShoppingHome() {
     setSearch(search);
   };
 
-  const categories = [
-    {title: 'plumber', icon: 'filter', bgColor: '#54C5F7'},
-    {title: 'Mechanic', icon: 'tool', bgColor: '#FF6B6B'},
-    {title: 'Painter', icon: 'form', bgColor: '#1CD1A1'},
-    {title: 'Construction', icon: 'home', bgColor: '#5ED1C9'},
-    {title: 'Carpenter', icon: 'pushpino', bgColor: '#9BC9F7'},
-    {title: 'Electrician', icon: 'disconnect', bgColor: '#FC9483'},
-  ];
-
   return (
     <View>
       {isLoading && (
@@ -98,7 +124,7 @@ export default function ShoppingHome() {
       )}
 
       {!isLoading && !isDeterminingLogin && (
-        <View style={{height: '100%'}}>
+        <ScrollView style={{height: '100%'}}>
           {/* <Image source={BGImage} style={{ width: '100%', height: '30%', alignItems: 'center', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}/>
                     <ScrollView style={{  position: 'absolute',width: '100%', height: '100%' }}>
                         <View style={{ alignItems: 'center', width: '100%',height:'100%' }}>
@@ -141,7 +167,69 @@ export default function ShoppingHome() {
             containerStyle={styles.containerStyle}
             inputContainerStyle={styles.inputContainerStyle}
           />
-        </View>
+          <View style={{flexDirection: 'row'}}>
+            <ScrollView horizontal={true}>
+              {categories.map((item) => {
+                return (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => alert(`You clicked ${item.title} card`)}
+                      style={{
+                        // marginVertical: 4,
+                        width: Width / 3.5,
+                        height: Height / 10,
+                        //     justifyContent: 'center',
+                        alignItems: 'center',
+                        //     borderRadius: 8,
+                        backgroundColor: 'red',
+                      }}>
+                      <Icon name={item.icon} size={40} color="#808080" />
+                      <Text>{item.title}</Text>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </ScrollView>
+          </View>
+          <Text>Brought to you be DelManor</Text>
+          <View style={{flexDirection: 'row'}}>
+            <ScrollView horizontal={true}>
+              {categories.map((item) => {
+                return (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => alert(`You clicked ${item.title} card`)}
+                      style={{
+                        // marginVertical: 4,
+                        width: Width / 3.5,
+                        height: Height / 10,
+                        //     justifyContent: 'center',
+                        alignItems: 'center',
+                        // borderRadius: 8,
+                        backgroundColor: 'red',
+                      }}>
+                      <Image
+                        source={{
+                          uri:
+                            'https://dukeofyorksquare.com/wp-content/uploads/2017/02/Pancakes-2.jpg',
+                        }}
+                        style={{
+                          height: 50,
+                          width: 50,
+                          borderRadius: 10,
+                          overflow: 'hidden',
+                        }}
+                      />
+                      <Text>{item.title}</Text>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </ScrollView>
+          </View>
+          <Text>Be part of the DelManor family</Text>
+          <Text>Everyday Living Essentials</Text>
+        </ScrollView>
       )}
     </View>
   );
