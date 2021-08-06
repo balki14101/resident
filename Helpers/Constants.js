@@ -7,6 +7,8 @@ const categories = [
   {title: 'Daily Essentials', icon: 'disconnect', bgColor: '#FC9483'},
 ];
 
+const sortby = [{title: 'Name'}, {title: 'Date'}];
+
 const scrollView1 = [
   {
     title: 'Laundry',
@@ -110,4 +112,4 @@ const scrollView3 = [
   },
 ];
 
-export {categories, scrollView1, scrollView2, scrollView3};
+export {categories, sortby, scrollView1, scrollView2, scrollView3};

@@ -1,20 +1,13 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Alert} from 'react-native';
 import {Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import Documents from '../Screens/DrawerScreens/Documents';
 
 import AwesomeAlert from 'react-native-awesome-alerts';
-import StackScreens from '../Screens/DrawerScreens/StackScreens';
-import Documents from '../Screens/DrawerScreens/Documents';
 
 export default function DrawerContent(props) {
   const [alert, setAlert] = useState(false);
-
-  const navigation = useNavigation();
 
   const showAlert = () => {
     props.navigation.closeDrawer();
@@ -26,7 +19,7 @@ export default function DrawerContent(props) {
 
     await AsyncStorage.clear();
 
-    props.navigation.navigate('Auth');
+    props.navigation.navigate('auth');
     // props.navigation.reset({
     //     index: 0,
     //     routes: [{ name: 'login' }],
@@ -39,36 +32,18 @@ export default function DrawerContent(props) {
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
-        <Drawer.Section style={styles.drawerSection}>
+        <Drawer.Section>
           <DrawerItem
-            label="My Documents"
-            labelStyle={styles.label}
-            onPress={Documents}
-          />
-          {/* <DrawerItem
-            label="kjgyhjg"
-            onPress={() => {
-              props.navigation.navigate('home');
-            }}
-          /> */}
-          {/* 
-          <DrawerItem
-            label="Notifications"
+            label="Profile"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('notification');
-            }}
-          />
-          <DrawerItem
-            label="My Documents"
-            labelStyle={styles.label}
-            onPress={() => {
-              navigation.navigate('Documents');
+              Alert.alert('this is profile');
+              //   props.navigation.navigate('notification');
             }}
           />
 
           <DrawerItem
-            label="My Subscriptions"
+            label="Payments"
             labelStyle={styles.label}
             onPress={() => {
               props.navigation.navigate('sub');
@@ -76,7 +51,7 @@ export default function DrawerContent(props) {
           />
 
           <DrawerItem
-            label="Support"
+            label="Visitations"
             labelStyle={styles.label}
             onPress={() => {
               props.navigation.navigate('support');
@@ -84,7 +59,28 @@ export default function DrawerContent(props) {
           />
 
           <DrawerItem
-            label="Terms of Use"
+            label="Events"
+            labelStyle={styles.label}
+            onPress={() => {
+              props.navigation.navigate('terms');
+            }}
+          />
+          <DrawerItem
+            label="Documents"
+            labelStyle={styles.label}
+            onPress={() => {
+              props.navigation.navigate('Documents');
+            }}
+          />
+          <DrawerItem
+            label="Support"
+            labelStyle={styles.label}
+            onPress={() => {
+              props.navigation.navigate('terms');
+            }}
+          />
+          <DrawerItem
+            label="Terms of use"
             labelStyle={styles.label}
             onPress={() => {
               props.navigation.navigate('terms');
@@ -95,7 +91,7 @@ export default function DrawerContent(props) {
             label="Logout"
             labelStyle={{fontSize: 18, fontFamily: 'poppins_regular'}}
             onPress={showAlert}
-          /> */}
+          />
 
           {/* <DrawerItem
                         label="Free Trial expries in 15 days"
@@ -126,8 +122,8 @@ export default function DrawerContent(props) {
 const styles = StyleSheet.create({
   drawerSection: {
     marginTop: 0,
-    // bottom: 50,
-    // paddingTop: 50,
+    bottom: 50,
+    paddingTop: 50,
     borderWidth: 0,
   },
   bottomDrawerSection: {
