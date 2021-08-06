@@ -273,4 +273,9 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     // width: Width / 1.2,
   },
+  text: {
+    color: colors.black,
+    marginLeft: 8,
+    fontWeight: 'bold',
+  },
 });

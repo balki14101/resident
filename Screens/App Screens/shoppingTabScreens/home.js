@@ -23,40 +23,13 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {SearchBar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Height, Width} from '../../../Helpers/Dimensions';
+import {
+  categories,
+  scrollView1,
+  scrollView2,
+  scrollView3,
+} from '../../../Helpers/Constants';
 
-const categories = [
-  {title: 'plumber', icon: 'filter', bgColor: '#54C5F7'},
-  {title: 'Mechanic', icon: 'tool', bgColor: '#FF6B6B'},
-  {title: 'Painter', icon: 'form', bgColor: '#1CD1A1'},
-  {title: 'Construction', icon: 'home', bgColor: '#5ED1C9'},
-  {title: 'Carpenter', icon: 'pushpino', bgColor: '#9BC9F7'},
-  {title: 'Electrician', icon: 'disconnect', bgColor: '#FC9483'},
-];
-
-const CategoryCard = (props) => {
-  const {key, data} = props;
-  const {icon, bgColor, title} = data;
-
-  return (
-    // <TouchableOpacity
-    //   onPress={() => alert(`You clicked ${title} card`)}
-    //   style={{
-    //     marginVertical: 4,
-    //     width: Width / 3.5,
-    //     height: Height / 6.5,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     borderRadius: 8,
-    //     backgroundColor: bgColor,
-    //   }}>
-    // <Icon name={icon} size={80} color="#808080" />
-
-    // </TouchableOpacity>
-    <View>
-      <Text style={styles.cardName}>{title}</Text>
-    </View>
-  );
-};
 export default function ShoppingHome() {
   const [isLoading, setIsLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState('');
@@ -125,40 +98,12 @@ export default function ShoppingHome() {
 
       {!isLoading && !isDeterminingLogin && (
         <ScrollView style={{height: '100%'}}>
-          {/* <Image source={BGImage} style={{ width: '100%', height: '30%', alignItems: 'center', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}/>
-                    <ScrollView style={{  position: 'absolute',width: '100%', height: '100%' }}>
-                        <View style={{ alignItems: 'center', width: '100%',height:'100%' }}>
-
-                           
-                            <View style={{ width: '100%', paddingHorizontal: 10, marginTop: '6%' }}>
-                                <TouchableOpacity onPress={()=>navigation.navigate('dailyMenu')} style={styles.welcomeContainer}>
-                                    <ImageBackground source={{ uri: 'https://dukeofyorksquare.com/wp-content/uploads/2017/02/Pancakes-2.jpg' }} style={{ height: 170, borderRadius: 10, overflow: 'hidden' }} >
-                                        <View style={{ height: '100%', width: '100%', backgroundColor: 'rgba(0,0,0,.3)', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
-                                            <Text style={styles.cardTxt}>Daily Meal {'\n'}Features</Text>
-                                        </View>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                
-                               
-
-                            </View>
-                             <View style={styles.communityContainer}>
-                                <Text style={styles.communityHead}>Shopping </Text>
-                                <View style={styles.bookingContainer}>
-                                    <Text style={styles.bookingTxt}>* Your remaining credits in Units  is <Text style={{ fontFamily: 'proxima-nova-bold' }}>30</Text> </Text>
-
-                                </View>
-                            </View>
-                        </View>
-
-                    </ScrollView> */}
-
           <ImageBackground
             source={{
               uri:
-                'https://dukeofyorksquare.com/wp-content/uploads/2017/02/Pancakes-2.jpg',
+                'https://i.gadgets360cdn.com/large/big-big_1563436302237.jpg',
             }}
-            style={{height: 170, borderRadius: 10, overflow: 'hidden'}}
+            style={{height: 170}}
           />
           <SearchBar
             placeholder="Search"
@@ -167,6 +112,7 @@ export default function ShoppingHome() {
             containerStyle={styles.containerStyle}
             inputContainerStyle={styles.inputContainerStyle}
           />
+
           <View style={{flexDirection: 'row'}}>
             <ScrollView horizontal={true}>
               {categories.map((item) => {
@@ -175,60 +121,174 @@ export default function ShoppingHome() {
                     <TouchableOpacity
                       onPress={() => alert(`You clicked ${item.title} card`)}
                       style={{
-                        // marginVertical: 4,
-                        width: Width / 3.5,
                         height: Height / 10,
-                        //     justifyContent: 'center',
+                        width: Width / 5,
+                        // justifyContent: 'center',
                         alignItems: 'center',
-                        //     borderRadius: 8,
-                        backgroundColor: 'red',
+                        // borderRadius: 50,
+                        marginHorizontal: 5,
+                        // backgroundColor: 'red',
                       }}>
-                      <Icon name={item.icon} size={40} color="#808080" />
-                      <Text>{item.title}</Text>
+                      <View
+                        style={{
+                          borderRadius: 50,
+                          backgroundColor: 'white',
+                          borderWidth: 1,
+                          height: 30,
+                          width: 30,
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                        <Icon name={item.icon} size={25} color="#616D2F" />
+                      </View>
+                      <Text style={{textAlign: 'center'}}>{item.title}</Text>
                     </TouchableOpacity>
                   </View>
                 );
               })}
             </ScrollView>
           </View>
-          <Text>Brought to you be DelManor</Text>
+
+          <Text style={styles.text}>Brought to you be DelManor</Text>
           <View style={{flexDirection: 'row'}}>
             <ScrollView horizontal={true}>
-              {categories.map((item) => {
+              {scrollView1.map((item) => {
                 return (
                   <View>
                     <TouchableOpacity
                       onPress={() => alert(`You clicked ${item.title} card`)}
                       style={{
-                        // marginVertical: 4,
-                        width: Width / 3.5,
-                        height: Height / 10,
-                        //     justifyContent: 'center',
+                        marginVertical: 8,
+                        marginHorizontal: 10,
+                        width: Width / 3,
+                        height: Height / 8,
+                        justifyContent: 'center',
                         alignItems: 'center',
-                        // borderRadius: 8,
-                        backgroundColor: 'red',
+                        borderRadius: 8,
+                        // backgroundColor: 'red',
                       }}>
                       <Image
                         source={{
-                          uri:
-                            'https://dukeofyorksquare.com/wp-content/uploads/2017/02/Pancakes-2.jpg',
+                          uri: item.image,
                         }}
                         style={{
-                          height: 50,
-                          width: 50,
-                          borderRadius: 10,
+                          height: Height / 10,
+                          width: Width / 3,
+                          borderRadius: 8,
                           overflow: 'hidden',
                         }}
                       />
-                      <Text>{item.title}</Text>
+                      <View
+                        style={{
+                          backgroundColor: '#DEE3CA',
+                          width: Width / 3,
+                          borderRadius: 8,
+                          // position: 'absolute',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                        <Text>{item.title}</Text>
+                      </View>
                     </TouchableOpacity>
                   </View>
                 );
               })}
             </ScrollView>
           </View>
-          <Text>Be part of the DelManor family</Text>
-          <Text>Everyday Living Essentials</Text>
+
+          <Text style={styles.text}>Be part of the DelManor family</Text>
+          <View style={{flexDirection: 'row'}}>
+            <ScrollView horizontal={true}>
+              {scrollView2.map((item) => {
+                return (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => alert(`You clicked ${item.title} card`)}
+                      style={{
+                        marginVertical: 8,
+                        marginHorizontal: 10,
+                        width: Width / 3,
+                        height: Height / 8,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: 8,
+                        // backgroundColor: 'red',
+                      }}>
+                      <Image
+                        source={{
+                          uri: item.image,
+                        }}
+                        style={{
+                          height: Height / 10,
+                          width: Width / 3,
+                          borderRadius: 8,
+                          overflow: 'hidden',
+                        }}
+                      />
+                      <View
+                        style={{
+                          backgroundColor: '#DEE3CA',
+                          width: Width / 3,
+                          borderRadius: 8,
+                          // position: 'absolute',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                        <Text>{item.title}</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </ScrollView>
+          </View>
+
+          <Text style={styles.text}>Everyday Living Essentials</Text>
+          <View style={{flexDirection: 'row'}}>
+            <ScrollView horizontal={true}>
+              {scrollView3.map((item) => {
+                return (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => alert(`You clicked ${item.title} card`)}
+                      style={{
+                        marginVertical: 8,
+                        marginHorizontal: 10,
+                        width: Width / 3,
+                        height: Height / 8,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: 8,
+                        // backgroundColor: 'red',
+                      }}>
+                      <Image
+                        source={{
+                          uri: item.image,
+                        }}
+                        style={{
+                          height: Height / 10,
+                          width: Width / 3,
+                          borderRadius: 8,
+                          overflow: 'hidden',
+                        }}
+                      />
+                      <View
+                        style={{
+                          backgroundColor: '#DEE3CA',
+                          width: Width / 3,
+                          borderRadius: 8,
+                          // position: 'absolute',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                        <Text>{item.title}</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </ScrollView>
+          </View>
         </ScrollView>
       )}
     </View>
