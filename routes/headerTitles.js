@@ -387,6 +387,72 @@ function DocumentsTitle() {
     </View>
   );
 }
+function EventsTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Events
+      </Text>
+    </View>
+  );
+}
+function PaymentsTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Payments
+      </Text>
+    </View>
+  );
+}
+function VisitationsTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Visitations
+      </Text>
+    </View>
+  );
+}
 
 export {
   HomeTitle,
@@ -407,4 +473,7 @@ export {
   BankingTitle,
   PeersTitle,
   DocumentsTitle,
+  PaymentsTitle,
+  EventsTitle,
+  VisitationsTitle,
 };

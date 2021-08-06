@@ -1,20 +1,18 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {DocumentsTitle} from '../../../routes/headerTitles';
-
-import Documents from './Documents';
-
+import {PaymentsTitle} from '../../../routes/headerTitles';
+import RentPaymentHome from './RentPaymentHome';
 const Stack = createStackNavigator();
 
-const StackScreens = () => {
+const RentPaymentStackScreens = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Documents"
-        component={Documents}
+        name="Rent"
+        component={RentPaymentHome}
         options={{
-          headerTitle: (props) => <DocumentsTitle {...props} />,
+          headerTitle: (props) => <PaymentsTitle {...props} />,
           headerTitleStyle: {
             alignSelf: 'center',
             color: '#ffffff',
@@ -32,4 +30,4 @@ const StackScreens = () => {
   );
 };
 
-export default StackScreens;
+export default RentPaymentStackScreens;

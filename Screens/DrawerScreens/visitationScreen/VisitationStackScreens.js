@@ -1,20 +1,19 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {DocumentsTitle} from '../../../routes/headerTitles';
-
-import Documents from './Documents';
+import {VisitationsTitle} from '../../../routes/headerTitles';
+import VisitationHome from './VisitationHome';
 
 const Stack = createStackNavigator();
 
-const StackScreens = () => {
+const VisitationStackScreens = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Documents"
-        component={Documents}
+        name="Events"
+        component={VisitationHome}
         options={{
-          headerTitle: (props) => <DocumentsTitle {...props} />,
+          headerTitle: (props) => <VisitationsTitle {...props} />,
           headerTitleStyle: {
             alignSelf: 'center',
             color: '#ffffff',
@@ -32,4 +31,4 @@ const StackScreens = () => {
   );
 };
 
-export default StackScreens;
+export default VisitationStackScreens;

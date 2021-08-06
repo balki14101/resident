@@ -11,6 +11,9 @@ import AppScreensStack from './routes/appScreens';
 import {ThemeProvider} from 'styled-components';
 import {ToastProvider} from 'react-native-styled-toast';
 import StackScreens from './Screens/DrawerScreens/Documentscreen/StackScreens';
+import EventStackScreens from './Screens/DrawerScreens/eventsScreen/EventStackScreens';
+import RentPaymentStackScreens from './Screens/DrawerScreens/rentPaymentScreen/RentPaymentStackScreens';
+import VisitationStackScreens from './Screens/DrawerScreens/visitationScreen/VisitationStackScreens';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +41,12 @@ export default function App() {
             <Stack.Screen name="Auth" component={AuthStackScreen} />
             <Stack.Screen name="App" component={AppScreensStack} />
             <Stack.Screen name="Documents" component={StackScreens} />
+            <Stack.Screen name="Events" component={EventStackScreens} />
+            <Stack.Screen name="Rent" component={RentPaymentStackScreens} />
+            <Stack.Screen
+              name="Visitation"
+              component={VisitationStackScreens}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </ToastProvider>

@@ -46,7 +46,7 @@ export default function DrawerContent(props) {
             label="Payments"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('sub');
+              props.navigation.navigate('Rent');
             }}
           />
 
@@ -54,7 +54,7 @@ export default function DrawerContent(props) {
             label="Visitations"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('support');
+              props.navigation.navigate('Visitation');
             }}
           />
 
@@ -62,7 +62,7 @@ export default function DrawerContent(props) {
             label="Events"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('terms');
+              props.navigation.navigate('Events');
             }}
           />
           <DrawerItem
@@ -76,14 +76,16 @@ export default function DrawerContent(props) {
             label="Support"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('terms');
+              Alert.alert('this is Support');
+              // props.navigation.navigate('terms');
             }}
           />
           <DrawerItem
             label="Terms of use"
             labelStyle={styles.label}
             onPress={() => {
-              props.navigation.navigate('terms');
+              Alert.alert('this is Terms of use');
+              // props.navigation.navigate('terms');
             }}
           />
 

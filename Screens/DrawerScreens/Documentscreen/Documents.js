@@ -4,9 +4,9 @@ import {SearchBar} from 'react-native-elements';
 import {Picker} from '@react-native-picker/picker';
 
 import BGImage from '../../../assets/images/bg.png';
-import {Height, Width} from '../../Helpers/Dimensions';
-import colors from '../../Helpers/Colors';
-import {sortby} from '../../Helpers/Constants';
+import {Height, Width} from '../../../Helpers/Dimensions';
+import colors from '../../../Helpers/Colors';
+import {sortby} from '../../../Helpers/Constants';
 
 const card = [
   {
