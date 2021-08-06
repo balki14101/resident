@@ -91,7 +91,11 @@ export default function DrawerContent(props) {
 
           <DrawerItem
             label="Logout"
-            labelStyle={{fontSize: 18, fontFamily: 'poppins_regular'}}
+            labelStyle={{
+              fontSize: 18,
+              fontWeight: 'bold',
+              fontFamily: 'poppins_regular',
+            }}
             onPress={showAlert}
           />
 

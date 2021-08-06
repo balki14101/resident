@@ -67,7 +67,7 @@ function Documents() {
         source={BGImage}
         style={{
           width: Width,
-          height: Height / 3,
+          height: Height / 4,
           alignItems: 'center',
           borderBottomLeftRadius: 10,
           borderBottomRightRadius: 10,
