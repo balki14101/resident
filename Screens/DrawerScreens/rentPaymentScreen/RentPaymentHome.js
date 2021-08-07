@@ -8,6 +8,8 @@ import {
   ScrollView,
 } from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+
 import BGImage from '../../../assets/images/bg.png';
 import colors from '../../../Helpers/Colors';
 import {Width, Height} from '../../../Helpers/Dimensions';
@@ -29,6 +31,8 @@ const Paid = [
 ];
 
 const RentPaymentHome = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{padding: 10}}>
       <Image
@@ -64,7 +68,9 @@ const RentPaymentHome = () => {
               </View>
               <View style={{justifyContent: 'space-between'}}>
                 <Text style={styles.textPrimary}>{due.rate}</Text>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => navigation.navigate('PaymentMethod')}>
                   <Text style={{color: colors.white}}>Pay Now</Text>
                 </TouchableOpacity>
               </View>

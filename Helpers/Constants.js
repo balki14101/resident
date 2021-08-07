@@ -1,3 +1,5 @@
+import image1 from '../assets/images/pic1.png';
+
 const categories = [
   {title: 'Health & Wellness', icon: 'filter', bgColor: '#54C5F7'},
   {title: 'Laundry', icon: 'tool', bgColor: '#FF6B6B'},
@@ -112,4 +114,13 @@ const scrollView3 = [
   },
 ];
 
-export {categories, sortby, scrollView1, scrollView2, scrollView3};
+const card = [
+  {
+    Name: 'John O Corner',
+    image: {image1},
+    relation: 'Son',
+    time: 'Monday,3:00PM',
+    date: 'April 5th 2021',
+  },
+];
+export {categories, sortby, scrollView1, scrollView2, scrollView3, card};
