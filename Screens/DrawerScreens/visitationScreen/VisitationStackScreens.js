@@ -4,9 +4,11 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {
   VisitationsTitle,
   BookVisitationsTitle,
+  VisitationDetailsTitle,
 } from '../../../routes/headerTitles';
 import VisitationHome from './VisitationHome';
 import BookVisitation from './BookVisitation';
+import VisitationDetails from './VisitationDetails';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +38,24 @@ const VisitationStackScreens = () => {
         component={BookVisitation}
         options={{
           headerTitle: (props) => <BookVisitationsTitle {...props} />,
+          headerTitleStyle: {
+            alignSelf: 'center',
+            color: '#ffffff',
+            fontFamily: 'proxima-nova-regular',
+            fontSize: 20,
+            justifyContent: 'center',
+          },
+          headerStyle: {
+            backgroundColor: '#616D2F',
+          },
+          headerTintColor: '#ffffff',
+        }}
+      />
+      <Stack.Screen
+        name="Visitation Details"
+        component={VisitationDetails}
+        options={{
+          headerTitle: (props) => <VisitationDetailsTitle {...props} />,
           headerTitleStyle: {
             alignSelf: 'center',
             color: '#ffffff',

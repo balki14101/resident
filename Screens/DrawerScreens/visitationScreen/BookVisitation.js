@@ -63,7 +63,6 @@ const BookVisitation = () => {
               onChangeText={onChangeText1}
               value={text1}
             />
-            <Text>d</Text>
           </View>
         </View>
         <View style={{flexDirection: 'row'}}>
@@ -89,18 +88,18 @@ const BookVisitation = () => {
         <View>
           <Text style={styles.textTertiary}>Relationship</Text>
           <TextInput
-            placeholder="Name"
+            placeholder="eg: Son"
             style={[styles.input]}
-            onChangeText={onChangeText1}
+            onChangeText={onChangeText2}
             value={text1}
           />
         </View>
         <View>
           <Text style={styles.textTertiary}>Purpose of Visitation</Text>
           <TextInput
-            placeholder="Name"
+            placeholder="Eg: Visiting For Meeting"
             style={[styles.input]}
-            onChangeText={onChangeText1}
+            onChangeText={onChangeText3}
             value={text1}
           />
         </View>

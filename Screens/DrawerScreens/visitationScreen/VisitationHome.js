@@ -9,6 +9,7 @@ import colors from '../../../Helpers/Colors';
 import {Width, Height} from '../../../Helpers/Dimensions';
 import UpcomingVisits from './UpcomingVisits';
 import PastVisits from './PastVisits';
+import Mainstyles from './styles';
 
 // import card from '../../../Helpers/Constants';
 import image1 from '../../../assets/images/pic1.png';
@@ -16,16 +17,68 @@ import image2 from '../../../assets/images/Pic2.png';
 import image3 from '../../../assets/images/Pic3.png';
 import image4 from '../../../assets/images/Pic4.png';
 
-const VisitationHome = () => {
+const Tab = createMaterialTopTabNavigator();
+
+const card = [
+  {
+    Name: 'John O Corner',
+    image: image1,
+    relation: 'Son',
+    time: '3:00 PM',
+    day: 'Monday',
+    date: 'April 5th 2021',
+  },
+  {
+    Name: 'Michael Samseal',
+    image: image2,
+    relation: 'GrandSon',
+    time: '4:00 PM',
+    day: 'Tuesday',
+    date: 'April 6th 2021',
+  },
+  {
+    Name: 'Patrica O Connor',
+    image: image3,
+    relation: 'Daughter',
+    time: '3:00 PM',
+    day: 'Wednesday',
+    date: 'April 7th 2021',
+  },
+  {
+    Name: 'Emily O Connor',
+    image: image4,
+    relation: 'GrandDaughter',
+    time: '6:00 PM',
+    day: 'Thursday',
+    date: 'April 15th 2021',
+  },
+];
+
+function HomeScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+function VisitationHome(props) {
   const navigation = useNavigation();
-  const Tab = createMaterialTopTabNavigator();
 
   const gotoBookVisitation = () => {
     navigation.navigate('Book Visitation');
   };
+
   return (
     <View style={{paddingHorizontal: 8}}>
-      <Image
+      {/* <Image
         source={BGImage}
         style={{
           width: Width,
@@ -40,73 +93,27 @@ const VisitationHome = () => {
         <TouchableOpacity style={styles.button} onPress={gotoBookVisitation}>
           <Text style={styles.buttonText}>Book Visitation</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       {/* <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginTop: 10,
         }}>
-        <TouchableOpacity
-          style={[styles.button, {width: Width / 2.25}]}
-          onPress={() => {
-            return <View1 />;
-          }}>
+        <TouchableOpacity style={[styles.button, {width: Width / 2.25}]}>
           <Text style={styles.buttonText}>Upcoming Visits</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, {width: Width / 2.25}]}
-          onPress={() => {
-            return <View2 />;
-          }}>
+        <TouchableOpacity style={[styles.button, {width: Width / 2.25}]}>
           <Text style={styles.buttonText}>Past Visits</Text>
         </TouchableOpacity>
       </View> */}
-      <View
-        style={{
-          marginTop: 10,
-        }}>
-        <Tab.Navigator
-          initialRouteName="Provider"
-          style={{marginTop: 0, paddingTop: 0, height: '100%'}}
-          tabBarOptions={{
-            indicatorStyle: {
-              height: 4,
-              backgroundColor: '#616D2F',
-              borderRadius: 5,
-            },
-            // scrollEnabled: true,
-            activeTintColor: '#616D2F',
-            inactiveTintColor: '#3B3A3A',
-            labelStyle: {
-              fontSize: 18,
-              fontFamily: 'proxima-nova-regular',
-              marginTop: 0,
-              textTransform: 'capitalize',
-            },
-            tabStyle: {height: 40, marginTop: 0, paddingTop: 0},
-            style: {
-              height: 40,
-              paddingTop: 0,
-              backgroundColor: 'transparent',
-              elevation: 0,
-              marginBottom: 15,
-            },
-          }}>
-          <Tab.Screen
-            name="UpcomingVisits"
-            component={UpcomingVisits}
-            options={{tabBarLabel: 'UpcomingcVisits'}}
-          />
-          <Tab.Screen
-            name="PastVisits"
-            component={PastVisits}
-            options={{tabBarLabel: 'Past Visits'}}
-          />
-        </Tab.Navigator>
-        {/* {card.map((item) => {
+      {/* <View style={{marginTop: 15}}>
+        {card.map((item) => {
           return (
-            <View
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Visitation Details', {item});
+              }}
               style={{
                 backgroundColor: 'white',
                 padding: 10,
@@ -118,7 +125,7 @@ const VisitationHome = () => {
               <View>
                 <Text style={Mainstyles.textPrimary}>{item.Name}</Text>
                 <Text style={Mainstyles.textSecondary}>{item.relation}</Text>
-                <Text>{item.time}</Text>
+                <Text>{`${item.day}, ${item.time}`}</Text>
                 <Text>{item.date}</Text>
               </View>
               <View>
@@ -127,13 +134,17 @@ const VisitationHome = () => {
                   style={{height: Height / 8, width: Width / 4}}
                 />
               </View>
-            </View>
+            </TouchableOpacity>
           );
-        })} */}
-      </View>
+        })}
+      </View> */}
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   button: {

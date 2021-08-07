@@ -475,6 +475,28 @@ function BookVisitationsTitle() {
     </View>
   );
 }
+function VisitationDetailsTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Details
+      </Text>
+    </View>
+  );
+}
 
 function PaymentMethodTitle() {
   return (
@@ -523,4 +545,5 @@ export {
   EventsTitle,
   VisitationsTitle,
   BookVisitationsTitle,
+  VisitationDetailsTitle,
 };
