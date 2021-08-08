@@ -134,10 +134,11 @@ export default function ShoppingHome() {
                           borderRadius: 50,
                           backgroundColor: 'white',
                           borderWidth: 1,
-                          height: 30,
-                          width: 30,
+                          height: 40,
+                          width: 40,
                           alignItems: 'center',
                           justifyContent: 'center',
+                          backgroundColor: '#f6f6f6',
                         }}>
                         <Icon name={item.icon} size={25} color="#616D2F" />
                       </View>

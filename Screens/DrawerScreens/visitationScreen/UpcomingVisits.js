@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Mainstyles from './styles';
 import colors from '../../../Helpers/Colors';
 import {Width, Height} from '../../../Helpers/Dimensions';
+
+import {useNavigation} from '@react-navigation/native';
 
 import image1 from '../../../assets/images/pic1.png';
 import image2 from '../../../assets/images/Pic2.png';
@@ -41,11 +43,16 @@ const card = [
 ];
 
 const UpcomingVisits = () => {
+  const Navigation = useNavigation();
+
   return (
     <View>
       {card.map((item) => {
         return (
-          <View
+          <TouchableOpacity
+            onPress={() => {
+              Navigation.navigate('Visitation Details', {item});
+            }}
             style={{
               backgroundColor: 'white',
               padding: 10,
@@ -66,7 +73,7 @@ const UpcomingVisits = () => {
                 style={{height: Height / 8, width: Width / 4}}
               />
             </View>
-          </View>
+          </TouchableOpacity>
         );
       })}
     </View>

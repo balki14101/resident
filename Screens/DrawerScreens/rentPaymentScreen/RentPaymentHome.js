@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {width} from 'styled-system';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -14,140 +9,164 @@ import BGImage from '../../../assets/images/bg.png';
 import colors from '../../../Helpers/Colors';
 import {Width, Height} from '../../../Helpers/Dimensions';
 
-const Due = [{title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'}];
-
-const Paid = [
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
-  {title: 'Rent Due', date: '30 may 2020', rate: '$5500.0'},
+const card = [
+  {title: 'My Transactions', icon: 'retweet', color: 'lightblue'},
+  {title: 'Payment Method', icon: 'creditcard', color: 'green'},
+  {title: 'Shopping Cart', icon: 'shoppingcart', color: 'gold'},
 ];
 
 const RentPaymentHome = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{padding: 10}}>
+    <View style={{paddingHorizontal: 10}}>
       <Image
         source={BGImage}
         style={{
           width: Width,
           height: Height / 4.75,
           alignItems: 'center',
-          borderBottomLeftRadius: 10,
-          borderBottomRightRadius: 10,
+          borderBottomLeftRadius: 24,
+          borderBottomRightRadius: 24,
           position: 'absolute',
         }}
       />
-      <View>
-        {Due.map((due) => {
-          return (
-            <View
-              style={{
-                flexDirection: 'row',
-                backgroundColor: colors.white,
-                height: Height / 8,
-                justifyContent: 'space-between',
-                padding: 8,
-                borderRadius: 8,
-                marginTop: 40,
-              }}>
-              <View style={{justifyContent: 'space-between'}}>
-                <Text style={styles.textPrimary}>{due.title}</Text>
-                <View>
-                  <Text style={styles.textTertiary}>Due on</Text>
-                  <Text style={styles.textTertiary}>{due.date}</Text>
-                </View>
-              </View>
-              <View style={{justifyContent: 'space-between'}}>
-                <Text style={styles.textPrimary}>{due.rate}</Text>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => navigation.navigate('PaymentMethod')}>
-                  <Text style={{color: colors.white}}>Pay Now</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          );
-        })}
-      </View>
-      {/* <ScrollView> */}
       <View
         style={{
+          marginTop: 25,
+          height: Height / 4,
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
           backgroundColor: colors.white,
-          borderTopStartRadius: 8,
-          borderTopEndRadius: 8,
-          marginTop: 35,
-          padding: 8,
+          borderRadius: 8,
+          // padding: 10,
         }}>
-        <Text style={[styles.textPrimary, {color: '#B96D05'}]}>History</Text>
+        <Text style={[styles.textPrimary, {color: colors.black}]}>
+          Rent Due
+        </Text>
+        <Text style={[styles.textSecondary, {color: colors.black}]}>
+          $3,234
+        </Text>
+        <TouchableOpacity style={styles.button1}>
+          <Text style={styles.buttonText}>Make Payment</Text>
+        </TouchableOpacity>
       </View>
-      <ScrollView
+      <View
         style={{
-          backgroundColor: colors.white,
-          borderBottomEndRadius: 8,
-          paddingHorizontal: 8,
-          // marginBottom: 10,
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
         }}>
-        <View style={{backgroundColor: 'white'}}>
-          {Paid.map((paid) => {
-            return (
-              <View
-                style={{
-                  justifyContent: 'space-between',
-                  height: Height / 11,
-                  paddingVertical: 8,
-                }}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text style={styles.textPrimary}>{paid.title}</Text>
-                  <Text style={styles.textPrimary}>{paid.rate}</Text>
-                </View>
-                <View>
-                  <Text style={styles.textSecondary}>{paid.date}</Text>
-                </View>
-              </View>
-            );
-          })}
-        </View>
-      </ScrollView>
-      {/* </ScrollView> */}
+        {/* {card.map((item) => {
+          return ( */}
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Transactions');
+          }}
+          style={[
+            styles.Card,
+            {
+              backgroundColor: colors.white,
+            },
+          ]}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Icon name={'retweet'} size={75} color="lightblue" />
+            <Text style={styles.textTertiary}>My Transactions</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.Card,
+            {
+              backgroundColor: colors.white,
+            },
+          ]}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Icon name={'creditcard'} size={75} color="green" />
+            <Text style={styles.textTertiary}>Payment Method</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.Card,
+            {
+              backgroundColor: colors.white,
+            },
+          ]}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Icon name="shoppingcart" size={75} color="red" />
+            <Text style={styles.textTertiary}>Shopping Cart</Text>
+          </View>
+        </TouchableOpacity>
+        {/* // ); */}
+        {/* // } */}
+        {/* )} */}
+      </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
   textPrimary: {
-    fontSize: 22,
+    fontSize: 32,
     fontFamily: 'proxima-nova-regular',
     fontWeight: 'bold',
   },
   textSecondary: {
-    color: '#767676',
-    fontSize: 14,
-    fontFamily: 'proxima-nova-light',
+    fontSize: 24,
+    fontFamily: 'proxima-nova-regular',
+    // fontWeight: 'bold',
   },
   textTertiary: {
-    color: '#000000',
-    fontSize: 14,
+    fontSize: 20,
     fontFamily: 'proxima-nova-regular',
+    fontWeight: 'bold',
   },
-  button: {
+  button1: {
     backgroundColor: '#F57E4A',
     paddingHorizontal: 13,
-    // paddingVertical: 10,
+    paddingVertical: 10,
     borderRadius: 6,
-    // marginTop: 12,
-    // width: '100%',
+    marginTop: 12,
+    width: Width / 1.5,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#ffffff',
+    lineHeight: 19,
+    fontFamily: 'proxima-nova-regular',
+    textAlign: 'center',
+  },
+  Card: {
+    // margin: 4,
+    marginVertical: 12,
+    width: Width / 2.2,
+    height: Height / 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+  },
+  shadow: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+
+    elevation: 12,
   },
 });
 

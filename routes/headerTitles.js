@@ -497,6 +497,50 @@ function VisitationDetailsTitle() {
     </View>
   );
 }
+function TransactionsTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        My Transactions
+      </Text>
+    </View>
+  );
+}
+function RentPaymentTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Rent Payment
+      </Text>
+    </View>
+  );
+}
 
 function PaymentMethodTitle() {
   return (
@@ -515,7 +559,7 @@ function PaymentMethodTitle() {
           fontFamily: 'proxima-nova-regular',
           paddingLeft: 10,
         }}>
-        Add Payment Method
+        Payment Method
       </Text>
     </View>
   );
@@ -541,6 +585,8 @@ export {
   PeersTitle,
   DocumentsTitle,
   PaymentsTitle,
+  RentPaymentTitle,
+  TransactionsTitle,
   PaymentMethodTitle,
   EventsTitle,
   VisitationsTitle,
