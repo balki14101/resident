@@ -10,6 +10,7 @@ import {
   BackHandler,
   Alert,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import styles from './shoppingStyles';
 import logo from '../../../assets/images/appLogo.png';
@@ -19,7 +20,7 @@ import {useRoute} from '@react-navigation/native';
 import {useToast} from 'react-native-styled-toast';
 import {Wave} from 'react-native-animated-spinkit';
 import {useNavigation} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesture-handler';
+import Carousel from 'react-native-snap-carousel';
 import {SearchBar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Height, Width} from '../../../Helpers/Dimensions';
@@ -84,6 +85,32 @@ export default function ShoppingHome() {
     setSearch(search);
   };
 
+  const carouselItems = [
+    {
+      title: 'https://i.gadgets360cdn.com/large/big-big_1563436302237.jpg',
+    },
+    {
+      title:
+        'https://i.gadgets360cdn.com/large/amazonindia_sale1_1571466846616.jpg',
+    },
+    {
+      title:
+        'https://img.global.news.samsung.com/in/wp-content/uploads/2020/10/Master-banner-Horizontal.jpg',
+    },
+    {
+      title:
+        'https://www.gizbot.com/img/2020/11/samsung-grand-diwali-fest-2020-smartphones-1604286089.jpg',
+    },
+  ];
+  const _renderItem = ({item, index}) => {
+    return (
+      <Image
+        source={{uri: item.title}}
+        style={{height: Height / 5, width: Width}}
+      />
+    );
+  };
+
   return (
     <View>
       {isLoading && (
@@ -98,13 +125,16 @@ export default function ShoppingHome() {
 
       {!isLoading && !isDeterminingLogin && (
         <ScrollView style={{height: '100%'}}>
-          <ImageBackground
-            source={{
-              uri:
-                'https://i.gadgets360cdn.com/large/big-big_1563436302237.jpg',
-            }}
-            style={{height: 170}}
-          />
+          <View>
+            <Carousel
+              layout={'default'}
+              data={carouselItems}
+              sliderWidth={Width}
+              itemWidth={Width}
+              renderItem={_renderItem}
+              // onSnapToItem={index => this.setState({ activeIndex: index })}
+            />
+          </View>
           <SearchBar
             placeholder="Search"
             onChangeText={updateSearch}
