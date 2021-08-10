@@ -565,6 +565,29 @@ function PaymentMethodTitle() {
   );
 }
 
+function GamesTitle() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingRight: 25,
+      }}>
+      <Image source={appLogo} style={{width: 30, height: 26}} />
+      <Text
+        style={{
+          color: '#ffffff',
+          fontSize: 22,
+          fontFamily: 'proxima-nova-regular',
+          paddingLeft: 10,
+        }}>
+        Games
+      </Text>
+    </View>
+  );
+}
+
 export {
   HomeTitle,
   ProfileTitle,
@@ -592,4 +615,5 @@ export {
   VisitationsTitle,
   BookVisitationsTitle,
   VisitationDetailsTitle,
+  GamesTitle,
 };

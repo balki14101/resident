@@ -6,6 +6,7 @@ export default StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  itemImage: {height: 50, width: 50, borderRadius: 15},
   cardTxt: {
     fontFamily: 'proxima-nova-bold',
     color: '#ffffff',

@@ -22,6 +22,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import DateTimePickerModal from '@react-native-community/datetimepicker';
 import moment from 'moment';
+import {get} from 'styled-system';
 
 export default function PlaceOrder() {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,22 +30,23 @@ export default function PlaceOrder() {
   const route = useRoute();
   const navigation = useNavigation();
   const {toast} = useToast();
-  const [isDateVisible, setDateVisible] = useState(false);
-  const [date, setDate] = useState('');
+  const [isVisible, setVisible] = useState(false);
+  const [time, setTime] = useState(new Date(1598051730000));
   const [orderState, setOrderState] = useState('');
   const [guest, setGuest] = useState(false);
   const [room, setRoom] = useState(false);
 
-  const handleDateConfirm = (date) => {
-    setDateVisible(false);
+  const handleDateConfirm = (time) => {
+    console.log(time);
+    setVisible(false);
+    setTime(time);
     setOrderState('time');
-    setDate('11-12-1996');
   };
-  const showDatePicker = () => {
-    setDateVisible(true);
+  const showTimePicker = () => {
+    setVisible(true);
   };
   const hideDatePicker = () => {
-    setDateVisible(false);
+    setVisible(false);
   };
   return (
     <View>
@@ -196,7 +198,7 @@ export default function PlaceOrder() {
                   </View>
                 </View>
 
-                {/* <View
+                <View
                   style={[
                     styles.welcomeContainer,
                     {paddingVertical: 14, alignItems: 'center', height: 'auto'},
@@ -229,6 +231,24 @@ export default function PlaceOrder() {
                       </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
+                      onPress={showTimePicker}
+                      style={[
+                        styles.selectOrder,
+                        {
+                          backgroundColor: !isVisible
+                            ? 'transparent'
+                            : '#F57E4A',
+                        },
+                      ]}>
+                      <Text
+                        style={[
+                          styles.btnText2,
+                          {color: !isVisible ? '#F57E4A' : 'white'},
+                        ]}>
+                        Select Time
+                      </Text>
+                    </TouchableOpacity>
+                    {/* <TouchableOpacity
                       onPress={showDatePicker}
                       style={[
                         styles.selectOrder,
@@ -244,22 +264,23 @@ export default function PlaceOrder() {
                         ]}>
                         Select Time
                       </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                   </View>
                 </View>
-                <DateTimePickerModal
-                  isVisible={isDateVisible}
-                  mode="date"
-                  maximumDate={new Date()}
-                  onConfirm={handleDateConfirm}
-                  onCancel={hideDatePicker}
-                /> */}
+                {isVisible && (
+                  <DateTimePickerModal
+                    value={time}
+                    mode="time"
+                    onConfirm={handleDateConfirm}
+                    onCancel={hideDatePicker}
+                  />
+                )}
               </View>
-              {/* {orderState == 'time' && (
+              {orderState == 'time' && (
                 <Text style={styles.timeTxt}>
-                  Your order will be be placed at {date}
+                  Your order will be be placed at {time}
                 </Text>
-              )} */}
+              )}
 
               <TouchableOpacity
                 style={[styles.loginBtn, {width: 240}]}

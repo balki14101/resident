@@ -189,7 +189,9 @@ export default function ShoppingHome() {
                 return (
                   <View>
                     <TouchableOpacity
-                      onPress={() => alert(`You clicked ${item.title} card`)}
+                      onPress={() =>
+                        navigation.navigate('CategoryScreen', {item})
+                      }
                       style={{
                         marginVertical: 8,
                         marginHorizontal: 10,

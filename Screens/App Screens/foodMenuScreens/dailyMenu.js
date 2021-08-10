@@ -10,6 +10,7 @@ import {
   ImageBackground,
   BackHandler,
   Alert,
+  StyleSheet,
 } from 'react-native';
 import styles from './culinaryStyles';
 import logo from '../../../assets/images/appLogo.png';
@@ -146,19 +147,15 @@ export default function DailyMenu() {
                       <View
                         style={{
                           flexDirection: 'row',
-                          justifyContent: 'space-between',
+                          justifyContent: 'space-around',
                           alignItems: 'center',
                           width: '90%',
                           marginTop: 10,
-                          //   backgroundColor: 'white',
+                          // backgroundColor: 'red',
                         }}>
                         <Image
                           source={{uri: item.itemimage1}}
-                          style={{
-                            height: 100,
-                            width: 100,
-                            borderRadius: 15,
-                          }}
+                          style={styles.itemImage}
                         />
                         <View style={styles.itemTxtView}>
                           <Text style={styles.itemTxt}>{item.itemname1}</Text>
@@ -167,18 +164,14 @@ export default function DailyMenu() {
                       <View
                         style={{
                           flexDirection: 'row',
-                          justifyContent: 'space-between',
+                          justifyContent: 'space-around',
                           alignItems: 'center',
                           width: '90%',
                           marginTop: 10,
                         }}>
                         <Image
                           source={{uri: item.itemimage2}}
-                          style={{
-                            height: 100,
-                            width: 100,
-                            borderRadius: 15,
-                          }}
+                          style={styles.itemImage}
                         />
                         <View style={styles.itemTxtView}>
                           <Text style={styles.itemTxt}>{item.itemname2}</Text>

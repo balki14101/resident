@@ -6,9 +6,11 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  ScrollView,
   ImageBackground,
   BackHandler,
   Alert,
+  StyleSheet,
 } from 'react-native';
 import styles from './culinaryStyles';
 import logo from '../../../assets/images/appLogo.png';
@@ -18,14 +20,85 @@ import {useRoute} from '@react-navigation/native';
 import {useToast} from 'react-native-styled-toast';
 import {Wave} from 'react-native-animated-spinkit';
 import {useNavigation} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesture-handler';
 import Addbutton from './addButton';
 
-export default function AlaCarte() {
+const card = [
+  {
+    title: 'Appetizer',
+    itemimage1:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190725-delish-butternut-squash-ravioli-ehg-vertical-1-1565301914.png?crop=1.00xw:0.667xh;0,0.108xh&resize=480:*',
+    itemname1: 'Butterscotch Squash Ravioli',
+    itemimage2:
+      'https://www.liquor.com/thmb/K6FH9cAkpEPEF3YWsQs8e2OrSA8=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/butternut-squash-old-fashioned-720x720-primary-4fae50694f0546f093c450e208fd213f.jpg',
+    itemname2: 'Squash Mix',
+  },
+  {
+    title: 'Salad',
+    itemimage1:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190725-delish-butternut-squash-ravioli-ehg-vertical-1-1565301914.png?crop=1.00xw:0.667xh;0,0.108xh&resize=480:*',
+    itemname1: 'Butterscotch Squash Ravioli',
+    itemimage2:
+      'https://www.liquor.com/thmb/K6FH9cAkpEPEF3YWsQs8e2OrSA8=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/butternut-squash-old-fashioned-720x720-primary-4fae50694f0546f093c450e208fd213f.jpg',
+    itemname2: 'Squash Mix',
+  },
+  {
+    title: 'Main Course',
+    itemimage1:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190725-delish-butternut-squash-ravioli-ehg-vertical-1-1565301914.png?crop=1.00xw:0.667xh;0,0.108xh&resize=480:*',
+    itemname1: 'Butterscotch Squash Ravioli',
+    itemimage2:
+      'https://www.liquor.com/thmb/K6FH9cAkpEPEF3YWsQs8e2OrSA8=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/butternut-squash-old-fashioned-720x720-primary-4fae50694f0546f093c450e208fd213f.jpg',
+    itemname2: 'Squash Mix',
+  },
+];
+
+export default function DailyMenu() {
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log('mertt');
+  const configError = {
+    toastStyles: {
+      bg: 'red',
+      borderRadius: 16,
+    },
+    color: 'white',
+    iconColor: 'white',
+    iconFamily: 'Entypo',
+    iconName: 'info',
+    closeButtonStyles: {
+      px: 4,
+      bg: 'white',
+      borderRadius: 16,
+    },
+    closeIconColor: 'red',
+    hideAccent: true,
+  };
+
+  const configSuccess = {
+    toastStyles: {
+      bg: 'green',
+      borderRadius: 16,
+    },
+    color: 'white',
+    iconColor: 'white',
+    iconFamily: 'Entypo',
+    iconName: 'info',
+    closeButtonStyles: {
+      px: 4,
+      bg: 'darkgrey',
+      borderRadius: 16,
+    },
+    closeIconColor: 'white',
+    hideAccent: true,
+  };
 
   const route = useRoute();
   const navigation = useNavigation();
+  const {toast} = useToast();
+
+  useEffect((async) => {
+    (async () => {})();
+  }, []);
 
   return (
     <View>
@@ -60,96 +133,55 @@ export default function AlaCarte() {
                 style={{
                   width: '100%',
                   paddingHorizontal: 10,
-                  marginTop: '8%',
+                  marginTop: 32,
                   marginBottom: 15,
                 }}>
-                <View
-                  style={[
-                    styles.welcomeContainer,
-                    {paddingVertical: 14, alignItems: 'center', height: 'auto'},
-                  ]}>
-                  <Text style={styles.categoryHead}>Appetizer</Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>
-                      Butterscotch Squash Ravioli
-                    </Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>Squash Mix</Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                </View>
-                <View
-                  style={[
-                    styles.welcomeContainer,
-                    {paddingVertical: 14, alignItems: 'center', height: 'auto'},
-                  ]}>
-                  <Text style={styles.categoryHead}>Salad</Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>
-                      Butterscotch Squash Ravioli
-                    </Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>Squash Mix</Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                </View>
-                <View
-                  style={[
-                    styles.welcomeContainer,
-                    {paddingVertical: 14, alignItems: 'center', height: 'auto'},
-                  ]}>
-                  <Text style={styles.categoryHead}>Main Course</Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>
-                      Butterscotch Squash Ravioli
-                    </Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      width: '90%',
-                      marginTop: 10,
-                    }}>
-                    <Text style={styles.itemTxt}>Squash Mix</Text>
-                    <Addbutton></Addbutton>
-                  </View>
-                </View>
+                {card.map((item) => {
+                  return (
+                    <View
+                      style={[
+                        styles.welcomeContainer,
+                        {paddingVertical: 14, alignItems: 'center'},
+                      ]}>
+                      <Text style={styles.categoryHead}>{item.title}</Text>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'space-around',
+                          alignItems: 'center',
+                          width: '90%',
+                          marginTop: 10,
+                          // backgroundColor: 'red',
+                        }}>
+                        <Image
+                          source={{uri: item.itemimage1}}
+                          style={styles.itemImage}
+                        />
+                        <View style={styles.itemTxtView}>
+                          <Text style={styles.itemTxt}>{item.itemname1}</Text>
+                        </View>
+                        <Addbutton />
+                      </View>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'space-around',
+                          alignItems: 'center',
+                          width: '90%',
+                          marginTop: 10,
+                        }}>
+                        <Image
+                          source={{uri: item.itemimage2}}
+                          style={styles.itemImage}
+                        />
+                        <View style={styles.itemTxtView}>
+                          <Text style={styles.itemTxt}>{item.itemname2}</Text>
+                        </View>
+                        <Addbutton />
+                      </View>
+                    </View>
+                  );
+                })}
               </View>
               <TouchableOpacity
                 style={[styles.loginBtn, {width: 240}]}
