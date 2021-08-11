@@ -56,7 +56,7 @@
     "react-native-tab-view": "^2.16.0",
     "react-native-table-component": "^1.2.1",
     "react-native-vector-icons": "^7.1.0",
-    "react-native-webview": "^11.2.3",
+    "react-native-webview": "^11.13.0",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   },

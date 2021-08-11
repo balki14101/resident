@@ -34,6 +34,7 @@ import CalendarHome from '../Screens/App Screens/calendarTabScreens/home';
 import EventDetails from '../Screens/App Screens/calendarTabScreens/eventDetails';
 import EnrollEvent from '../Screens/App Screens/calendarTabScreens/enrollEvent';
 import GamesHome from '../Screens/GamingTabScreen/Home';
+import WebView from '../Screens/GamingTabScreen/WebView';
 
 const DashBoardStack = createStackNavigator();
 
@@ -514,6 +515,41 @@ const GamesStackScreen = ({navigation}) => {
       <GamesStack.Screen
         name="home"
         component={GamesHome}
+        options={{
+          headerTitle: (props) => <GamesTitle {...props} />,
+          headerTitleStyle: {
+            alignSelf: 'center',
+            color: '#ffffff',
+            fontFamily: 'proxima-nova-regular',
+            fontSize: 20,
+            justifyContent: 'center',
+          },
+          headerStyle: {
+            backgroundColor: '#616D2F',
+          },
+          headerTintColor: '#707070',
+          headerRight: () => (
+            <View style={{flexDirection: 'row'}}>
+              <Bell
+                onPress={() => navigation.navigate('profile')}
+                style={{color: 'white', marginRight: 12}}
+                size={25}
+              />
+            </View>
+          ),
+          headerLeft: () => (
+            <Icon
+              name="menu"
+              onPress={() => navigation.openDrawer()}
+              style={{color: 'white', marginLeft: 12}}
+              size={25}
+            />
+          ),
+        }}
+      />
+      <GamesStack.Screen
+        name="WebView"
+        component={WebView}
         options={{
           headerTitle: (props) => <GamesTitle {...props} />,
           headerTitleStyle: {

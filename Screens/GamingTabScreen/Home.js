@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import {SearchBar} from 'react-native-elements';
-import {alignItems} from 'styled-system';
+import {useNavigation} from '@react-navigation/native';
 
 import BGImage from '../../assets/images/bg.png';
 import colors from '../../Helpers/Colors';
@@ -50,6 +50,8 @@ const categoryScreen = [
 const Home = () => {
   const [search, setSearch] = useState('');
 
+  const navigation = useNavigation();
+
   const updateSearch = (search) => {
     setSearch(search);
   };
@@ -70,7 +72,10 @@ const Home = () => {
         <View style={styles.scrollview}>
           {categoryScreen.map((item) => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('WebView');
+                }}>
                 <View style={styles.Card}>
                   <Image source={{uri: item.image}} style={styles.itemImage} />
                   <View
